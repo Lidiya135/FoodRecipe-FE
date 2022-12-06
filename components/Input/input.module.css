@@ -1,0 +1,25 @@
+.input{
+    width: 426px;
+    height: 54px;
+    padding-left: 10px;
+    border: 1px solid #868e9c;
+    border-radius: 6px;
+    color: #8692a6;
+  }
+  .input:hover {
+    border: 1px solid #efc81a;
+  }
+  .inputrecipe{
+    width: 810px;
+    height: 70px;
+    padding-left: 20px;
+  }
+  .landing {
+    width: 500px;
+    height: 60px;
+    border: 1px solid #efefef;
+    padding-left: 30px;
+  }
+  .landing:hover {
+    border: 1px solid #efc81a;
+  }

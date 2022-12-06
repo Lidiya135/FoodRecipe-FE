@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    padding-top: 50px;
+    font-family: 'airbnb';
+  }
+  .main {
+    width: 70%;
+    padding-left: 30px;
+    /* background-color: blueviolet; */
+  }
+  .sub {
+    width: 30%;
+    margin-top: -20px;
+    margin-left: 40px;
+  }
+  .sub h6 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px;
+  }
+  .sub p {
+    font-weight: bold;
+  }
+  .nextvid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 319px;
+  }
+  .vid {
+    width: 319px;
+    height: 160px;
+  }
+  .vid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .mainvid video {
+    object-fit: contain;
+  }

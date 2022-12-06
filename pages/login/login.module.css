@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    color: rgb(206, 202, 202);
+  }
+  .bg {
+    background-image: linear-gradient(#e6c22480 100%, white), url("../../public/image/foods.png");
+    width: 50vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg img {
+    width: 182px;
+    height: 224px;
+  }
+  .content {
+    width: 50%;
+    /* background-color: aqua; */
+  }
+  .title {
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15vh;
+    width: 426px;
+    margin-left: 110px;
+  }
+  .title h4 {
+
+    text-align: center;
+    color: #efc81a;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    margin: 0;
+  }
+  .title span {
+    text-align: center;
+   margin-bottom: 10px;
+  }
+  .name{
+    background-color: cadetblue;
+    padding-top: 20px;
+  }
+  .btn {
+    width: 426px;
+    height: 54px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    background-color: #efc81a;
+    margin-top: 5px;
+  }
+  .forgot{
+    text-align: right;
+  }
+  .text{
+    text-align: center;
+  }
+  .a{
+    color: #efc81a;;
+  }
+

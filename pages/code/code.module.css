@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    color: rgb(206, 202, 202);
+  }
+  .bg {
+    background-image: linear-gradient(#e6c22480 100%, white), url("../../public/image/foods.png");
+    width: 50vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg img {
+    width: 182px;
+    height: 224px;
+  }
+  .content {
+    width: 50%;
+    /* background-color: aqua; */
+  }
+  .title {
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30vh;
+    width: 426px;
+    margin-left: 110px;
+  }
+  .btn {
+    width: 426px;
+    height: 54px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    background-color: #efc81a;
+    margin-top: 5px;
+  }
+ 

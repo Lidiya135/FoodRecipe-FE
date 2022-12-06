@@ -1,0 +1,38 @@
+.login {
+    width: 426px;
+    height: 64px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+  }
+  .yellow {
+    background-color: #efc81a;
+  }
+  .btnVid {
+    width: 411px;
+    height: 93px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+  }
+  .post {
+    width: 426px;
+    height: 44px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+  }
+  .btnlearn {
+    width: 170px;
+    height: 44px;
+    background-color: #efc81a;
+    color: white;
+    border: none;
+  }
+  .btnsearch {
+    width: 100px;
+    height: 60px;
+    border: 1px solid #ffffff;
+    font-weight: bold;
+    background-color: white;
+  }

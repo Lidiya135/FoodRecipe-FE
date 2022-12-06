@@ -1,0 +1,74 @@
+.navbar {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    z-index: 1000px;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'airbnb';
+  }
+  
+  .links {
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    padding-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .links a {
+    color: #2e266f;
+  }
+  .links a:hover {
+    color: black;
+    font-weight: bold;
+  }
+  .logout {
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    position: relative;
+    padding-left: 10px;
+    border: 1px solid #efc81a;
+  }
+  .image {
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    position: relative;
+    padding-left: 10px;
+  }
+  .link {
+    display: flex;
+    color: rgb(15, 0, 0);
+    gap: 10px;
+    align-items: center;
+    /* background-color: aqua; */
+    margin-left: 60px;
+  }
+  .login {
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    position: relative;
+    padding-left: 900px;
+  }
+  .linklogin {
+    /* background-color: aqua; */
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    text-shadow: -1px -1px 0 #efc81a, 1px -1px 0 #efc81a, -1px 1px 0 #efc81a, 1px 1px 0 #efc81a;
+    /* background-color: #efc81a; */
+  }
+  /* .btnlogout {
+    background-color: transparent;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+  } */

@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+  }
+  .menu {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 40px;
+  }
+  .menu h1 {
+    font-size: 72px;
+    color: #2e266f;
+    font-weight: 700;
+  }
+  .bg {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+  }
+  .mainimg {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    margin-top: 30px;
+    z-index: 2;
+  }
+  
+  .mainimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .yellow {
+    background-color: #efc81a;
+    width: 50%;
+    height: 100vh;
+    margin-top: -60px;
+    position: relative;
+    z-index: -1000;
+  }
+  .white {
+    background-color: transparent;
+    width: 50%;
+    height: 100vh;
+    margin-top: -60px;
+    position: relative;
+  }
+
+.popular {
+  display: flex;
+  gap: 30px;
+}
+.container2 {
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.container2 h1 {
+  margin-left: 50px;
+  color: #2e266f;
+  margin-bottom: 100px;
+}
+.popularimg {
+  width: 400px;
+  height: 380px;
+  margin-bottom: 70px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 30px;
+}
+.popularimg img {
+  width: 100%;
+  /* height: 100%;
+  object-fit: cover;
+  border-radius: 30px; */
+}
+.container3 {
+  margin-top: 70px;
+  margin-left: 70px;
+  display: flex;
+}
+.new h1 {
+  color: #3f3a3a;
+  margin-left: 100px;
+}
+.newimg {
+  width: 450px;
+  height: 450px;
+  margin-top: 70px;
+  margin-left: 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.newimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.titlenew {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+}
+.titlenew h1 {
+  color: #3f3a3a;
+}
+.titlenew h6 {
+  color: #3f3a3a;
+}
+.container4 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+.container4 h1 {
+  margin-left: 100px;
+}
+.popurecipe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 50px;
+  margin-right: 20px;
+  /* background-color: aqua; */
+}
+.recipeimg {
+  width: 300px;
+  height: 300px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.recipeimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
