@@ -5,9 +5,10 @@ import Input from "../../components/input/index.js";
 import styles from "./login.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router.js";
 
 const Login = () => {
-
+    const router = useRouter ();
     const [inputData, setInputData] = useState({
       email: "",
       password: "",

@@ -7,16 +7,16 @@ import styles from "./addRecipe.module.css";
 import Footer from "../../components/Footer";
 import Layouts from "../../components/Layouts";
 
-const AddRecipe = () => {
+const EditRecipe = () => {
     const router = useRouter()
+    // const token = localStorage.getItem('token')
+    // const userID = localStorage.getItem('id_user')
     
     const [input, setInput] = useState({
-        id_recipe: "7",
-        name_recipe: "",
+      
+        name: "",
         description: "",
-        video:"",
-        id_user: 2
-        // photo: ""
+        video
     })
 
     const [photo, setPhoto] = useState([])
@@ -38,25 +38,24 @@ const AddRecipe = () => {
     const postData = async (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append('id_recipe', input.id_recipe)
-        formData.append('name_recipe', input.name_recipe)
+        formData.append('name', input.name)
         formData.append('description', input.description)
         formData.append('photo', photo, photo.name)
-        formData.append('video', input.video)
-        formData.append('id_user', input.id_user)
-        
-
-        axios.post('http://localhost:4000/recipe',formData, {
-            headers: { 'Content-Type': 'multipart/form-data' }
-             })
-              .then(res => {console.log(res, 'input data success')
-                alert('input data success');
-              })
-              .catch( (err) => {
-              console.log(err.message, 'input data fail')
-              alert('input data fail');
-              })
+        try {
+            const result = await axios({
+                method: 'POST',
+                url: (`${process.env.apirec}`),
+                data: formData,
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                }
+            })
+            // console.log(result);
+            alert('Add Data Sucess')
+        } catch (error) {
+            console.log('failed', error);
         }
+    }
 
     return (
         <Layouts title="| Add Recipe">
@@ -66,7 +65,7 @@ const AddRecipe = () => {
                     <input type="file" id="photo" name="photo" placeholder="photo" onChange={handlePhoto}/>
                 </div>
                 <div>
-                    <input type="text" name="name_recipe" className={styles.inputrecipe} placeholder="Title" value={input.name_recipe} onChange={handleChange} />
+                    <input type="text" name="name" className={styles.inputrecipe} placeholder="Title" value={input.name} onChange={handleChange} />
                 </div>
                 <div>
                     <textarea type="text" className={styles.ingre} name="description" id="" cols="105" rows="10" placeholder="Ingredients" value={input.description} onChange={handleChange} />
@@ -74,7 +73,7 @@ const AddRecipe = () => {
                 <div>
                     <input type="file" value={input.video} onChange={handleChange}/>
                 </div>
-                <Button type="submit" title="Add Recipe" color="yellow" btn="post" />
+                <Button title="Update Recipe" color="yellow" btn="post" />
                 </form>
             </div>
           <Footer className="footer" />
@@ -82,4 +81,4 @@ const AddRecipe = () => {
     );
 }
 
-export default AddRecipe;
+export default EditRecipe;

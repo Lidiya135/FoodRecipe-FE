@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 200px;
+    font-family: 'airbnb';
+  }
+  .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(221, 220, 220);
+    border: 1px black solid;
+    width: 1000px;
+    height: 300px;
+    margin-top: 40px;
+  }
+  .photo:hover{
+    border: 1px blue solid;
+  }
+  .ingre {
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: rgb(221, 220, 220);
+  }
+  .ingre:hover {
+    border: 1px blue solid;
+  }
+  .inputrecipe {
+    width: 810px;
+    height: 70px;
+    padding-left: 20px;
+    background-color: rgb(221, 220, 220);
+  }
+  .inputrecipe:hover {
+    border: 1px blue solid;
+  }

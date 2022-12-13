@@ -23,11 +23,15 @@ const Navbar = () => {
                 </Link>
             </li>
         </ul>
+       
         <div className={styles.linklogin}>
             <div className={styles.logout}>
                 <Image src="/image/user.png" alt="" width={50} height={50} />
             </div>
             <Link href="/login">Login</Link>
+            <span className={styles.span}>
+                <Link href="/login">Logout</Link>
+            </span>
         </div>
     </nav>
   );

@@ -1,0 +1,23 @@
+.container{
+    background-color: white;
+    color: black;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    justify-self: center;
+    flex-direction: column;
+    display: flex;
+}
+.card{
+    border-bottom-color: gray;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+}
+.card:hover{
+    background-color: azure;
+}

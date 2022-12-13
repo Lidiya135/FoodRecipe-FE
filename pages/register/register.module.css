@@ -21,10 +21,10 @@
   }
   .content {
     width: 50%;
-    background-color: aqua;
+    /* background-color: aqua; */
   }
   .title {
-    background-color: grey;
+    /* background-color: grey; */
     display: flex;
     flex-direction: column;
     justify-content: center;

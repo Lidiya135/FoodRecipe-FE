@@ -45,6 +45,10 @@
     text-align: center;
    margin-bottom: 10px;
   }
+  .title input:hover{
+    border: 1px yellow solid;
+
+  }
   .name{
     background-color: cadetblue;
     padding-top: 20px;
