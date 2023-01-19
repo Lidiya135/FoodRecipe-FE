@@ -1,62 +1,81 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import Button from "../../components/Button";
 import styles from "./addRecipe.module.css";
 import Footer from "../../components/Footer";
 import Layouts from "../../components/Layouts";
+import swal from "sweetalert";
 
-const AddRecipe = () => {
-    const router = useRouter()
+export const getServerSideProps = async (context) => {
+    const { token } = context.req.cookies;
+    console.log(token);
+    if (!token) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: true,
+        },
+      };
+    }
+
+     const user = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const result = await fetch(`http://localhost:3009/users/data`, user);
+      const dataUser = await result.json();
+      console.log(dataUser,"data get usr in add ssr");
+
+    return {
+        props: {
+          isLogin: true,
+          token: token,
+          dataUser,
+        },
+      };
+    };
+
+    function AddRecipe({ token, dataUser }) {
+        const router = useRouter()
+        const [title, setTitle] = useState("");
+        const [ingredients, setIngredients] = useState("");
+        const [photo, setPhoto] = useState("");
+        const [vidio, setVidio] = useState("");
+
     
-    const [input, setInput] = useState({
-        id_recipe: "7",
-        name_recipe: "",
-        description: "",
-        video:"",
-        id_user: 2
-        // photo: ""
-    })
+      const user_recipe_id = dataUser.data[0].id;
+      console.log(user_recipe_id, "data user id")
+      const handlePhoto = (e) => {
+        setPhoto(e.target.files[0]);
+        console.log(e.target.files[0]);
+      };
 
-    const [photo, setPhoto] = useState([])
+        const postData = async (e) => {
+            e.preventDefault();
+            console.log(title);
+            console.log(ingredients);
+            console.log(photo);
+            console.log(vidio);
+            let data = {
+              title,
+              ingredients,
+              photo,
+              vidio,
+              user_recipe_id
+            };
+            const user = {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
+              },
+            };
+            await axios.post(`http://localhost:3009/recipe`, data, user);
+            swal("Success", "Add Recipes Success", "success");
+            router.push("/profile")
+          };
 
-    const handleChange = (e) => {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
-        // console.log(e)
-    }
-
-    const handlePhoto = (e) => {
-        const handle = e.target.files[0]
-        setPhoto(handle);
-        // console.log(handle);
-    }
-
-    const postData = async (e) => {
-        e.preventDefault()
-        const formData = new FormData()
-        formData.append('id_recipe', input.id_recipe)
-        formData.append('name_recipe', input.name_recipe)
-        formData.append('description', input.description)
-        formData.append('photo', photo, photo.name)
-        formData.append('video', input.video)
-        formData.append('id_user', input.id_user)
-        
-
-        axios.post('http://localhost:4000/recipe',formData, {
-            headers: { 'Content-Type': 'multipart/form-data' }
-             })
-              .then(res => {console.log(res, 'input data success')
-                alert('input data success');
-              })
-              .catch( (err) => {
-              console.log(err.message, 'input data fail')
-              alert('input data fail');
-              })
-        }
 
     return (
         <Layouts title="| Add Recipe">
@@ -66,13 +85,13 @@ const AddRecipe = () => {
                     <input type="file" id="photo" name="photo" placeholder="photo" onChange={handlePhoto}/>
                 </div>
                 <div>
-                    <input type="text" name="name_recipe" className={styles.inputrecipe} placeholder="Title" value={input.name_recipe} onChange={handleChange} />
+                    <input type="text" name="title" className={styles.inputrecipe} placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </div>
                 <div>
-                    <textarea type="text" className={styles.ingre} name="description" id="" cols="105" rows="10" placeholder="Ingredients" value={input.description} onChange={handleChange} />
+                    <textarea type="text" className={styles.ingre} name="ingredients" id="" cols="105" rows="10" placeholder="Ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
                 </div>
                 <div>
-                    <input type="file" value={input.video} onChange={handleChange}/>
+                    <input type="text" name="vidio" value={vidio} onChange={(e) => setVidio(e.target.value)} className={styles.inputrecipe} />
                 </div>
                 <Button type="submit" title="Add Recipe" color="yellow" btn="post" />
                 </form>

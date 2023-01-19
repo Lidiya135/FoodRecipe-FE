@@ -1,76 +1,75 @@
 import Link from "next/link";
-import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from 'axios';
 import Footer from "../../components/Footer";
 import Layouts from "../../components/Layouts";
-import Card from "../../components/Card1";
 import styles from "./profile.module.css";
-import Image from "next/image";
-import { userAgent } from "next/server";
+import ModalProfile from "../../components/Modal";
+import myRecipe from "./myRecipe";
+import TabData from "../../components/TabProfile";
 
-const Profile = () => {
+export const getServerSideProps = async (context) => {
+  const { token } = context.req.cookies;
+  // console.log(token,"yuhuuu");
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: true,
+      },
+    };
+  }
 
-    const router = useRouter();
+  return {
+    props: {
+      isLogin: true,
+      token: token,
+    },
+  };
+};
+
+const Profile = ({token}) => {
+
     const [data, setData] = useState([])
-  
-    // useEffect(() => {
-    //   axios
-    //     .get("http://localhost:4000/recipe"
-    //       // `${process.env.apirec}`, { withCredentials: true }
-    //     )
-    //     .then((res) => {
-    //       console.log(res);
-    //       setData(res.data.data);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }, []);
-
+    // console.log(token,"my token in pprofil")
+    const user= {
+      headers: {
+      Authorization: `Bearer ${token}`,
+    }};
     useEffect(() => {
       axios
-        .get("http://localhost:4000/users"
-          // `${process.env.apirec}`, { withCredentials: true }
-        )
+        .get("http://localhost:3009/users/data", user)
         .then((res) => {
-          console.log(res);
-          setData(res.data.data);
+          console.log("get data success");
+          console.log(res.data);
+          res.data && setData(res.data.data[0]);
         })
         .catch((err) => {
+          console.log("get data fail");
           console.log(err);
         });
     }, []);
+// console.log(data.fullname, "nama user")
+
 
     return (
         <Layouts title="| Profile">
             <div className={styles.container}>
                 <div className={styles.profile}>
-                    {/* {data?.map((user) => ( */}
                     <div className={styles.profil}>
-                        <Image src="/image/photo.png" alt="image" width={100} height={100} />
+                        {/* <img src="/image/photo.png" alt="image" width={100} height={100} /> */}
+                        <img src={data ? data.photo : "data not found"} alt="image" width={100} height={100} />
                     </div>
-                    {/* <h2>{user.name}</h2> */}
-                    <h2>Garneta Sharina</h2>
-                    {/* ))} */}
+                    <h2>{data ? data.fullname : "data not found"}</h2>
+                    {/* <h2>Garneta Sharina</h2> */}
                 <div>
-                <div className={styles.link}>
-                    <Link href="">
-                        My Recipe
-                    </Link>
-                    <Link href="">
-                        Saved Recipe
-                    </Link>
-                    <Link href="">
-                        Liked Recipe
-                    </Link>
+                <div className="text-center mb-4 mt-2">
+                  <ModalProfile token={token} />
                 </div>
                 <div className={styles.recipe}>
-                    <Card/>
-                    {data.map((recipe) => (
-              <Card key={recipe.id_recipe} name={recipe.name} id={recipe.id_recipe} src={recipe.photo} onClick={() => router.push(`/detailRecipe`)} />
-            ))}
+                  <TabData token={token} />
+                  <myRecipe token={token} />
                 </div>
                 </div>
             </div>

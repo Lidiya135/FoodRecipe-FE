@@ -6,56 +6,57 @@ import styles from "./login.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router.js";
+import swal from "sweetalert";
 
 const Login = () => {
-    const router = useRouter ();
-    const [inputData, setInputData] = useState({
-      email: "",
-      password: "",
-    });
-    const [message, setMessage] = useState({
-      title: "",
-      text: "",
-      type: "success",
-    });
-    const [messageShow, setMessageShow] = useState(false);
-  
-    const handleLogin = (e) => {
-      axios
-        .post(
-          process.env.API,
-          { email: inputData.email, password: inputData.password },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((res) => {
-          localStorage.setItem("token", res.data.data.token);
-          setMessage({
-            title: "Success",
-            text: "Login success",
-            type: "success",
-          });
-          setTimeout(() => {
-            setMessageShow(true);
-          }, 500);
-          setTimeout(() => {
-            window.location = "/landingPage";
-          }, 2000);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  const router = useRouter();
+  const postData = async (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+    let data = {
+      email,
+      password,
     };
-    const handleChange = (e) => {
-      setInputData({
-        ...inputData,
-        [e.target.name]: e.target.value,
-      });
+    console.log(data, "data dr form login")
+    const config = {
+      withCredentials: true,
     };
-    console.log(message);
+    const result = await axios.post(
+      `http://localhost:3009/users/login`,
+      data,
+      config
+    );
+    console.log(result, "result bfor cokie")
+    const token = result.data.data.token;
+    const id = result.data.data.id;
+    console.log(token,"tokennnn")
+    const dataToken = {
+      token: token,
+      id: id,
+    };
+    console.log(dataToken, "dataaa token loginn")
+    const cookie = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToken),
+    });
+    const checkToken = await cookie.json();
+    if (!checkToken) {
+      return swal("Warning", "Login Failed", "error");
+    }
+    swal("Success", "Login Success", "success");
+    console.log(dataToken);
+    router.push("/landingPage");
+  };
 
   return (
     <>
@@ -69,16 +70,17 @@ const Login = () => {
             <span>log in into your exiting account</span>
             <p>
                 E-mail
-                <Input type="text" name="email" value={inputData.email} onChange={handleChange} className="input" placeholder="example@gmail.com" />
+                <Input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" placeholder="example@gmail.com" />
             </p>
             <p>
                 Password
-                <Input type="password" name="password" value={inputData.password} onChange={handleChange} className="input" placeholder="Password" />
+                <Input type="password" name="password"   value={password} onChange={(e) => setPassword(e.target.value)}
+               className="input" placeholder="Password" />
             </p>
             <p>
                 <input type="checkbox" /> I agree to terms conditions
             </p>
-            <button type="submit" onClick={handleLogin} className={styles.btn}>
+            <button type="submit" onClick={postData} className={styles.btn}>
               <Link href="/landingPage">Login</Link>
             </button>
             <p className={styles.forgot}>

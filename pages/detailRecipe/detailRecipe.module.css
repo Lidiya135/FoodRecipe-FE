@@ -54,6 +54,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
-    gap: 30px;
+    margin-top: 100px;
+    gap: 12px;
+    /* background-color: aquamarine; */
+  }
+  .coment h3{
+    margin-top: 30px;
+  }
+  .boxcom{
+background-color: white;
+width: 600px;
+  }
+  .ruang{
+    background-color: whitesmoke;
+    display: flex;
+
+  }
+  .usercommen{
+    background-color: rgb(202, 123, 26);
+    width: 50px;
+    border-radius: 40px;
+    margin-right: 20px;
+  }
+  .text{
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+  .text span{
+    font-weight: 600;
   }

@@ -1,50 +1,34 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
 import Input from "../../components/input/index.js";
 import Button from "../../components/Button/index.js";
-import Card from "../../components/Card/index.js"
+// import Card from "../../components/Card/index.js"
 import styles from "./landingPage.module.css";
-import Image from "next/image";
 import Link from "next/link"
-// import Navbar from "../../components/Navbar";
+import { useRouter } from "next/router";
+import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer/index.js";
 import Layouts from "../../components/Layouts";
 
-// export async function getServerSideProps(){
-//     const res = await fetch(`${process.env.apirec}`);
-//     const data = await res.json();
-//     console.log(data)
-//     return{
-//       props: {
-//         data
-//       },
-//     }
-//   }
-
-const landingPage = () => {
+export async function getServerSideProps(context){
+    const res = await fetch(`http://localhost:3009/recipe`);
+    const { token } = context.req.cookies;
+    console.log(token, "my tokennnn")
+    const data = await res.json();
+    console.log("dataaaa", data)
+    console.log(data);
+    return {
+        props: {
+        data,
+        login: token ? true : false,
+        },
+    };
+}
+const LandingPage = ({ data, login }) => {
     const router = useRouter();
-    const [data, setData] = useState([]);
-  
-    useEffect(() => {
-      axios
-        .get("http://localhost:4000/recipe"
-          // `${process.env.apirec}`, { withCredentials: true }
-        )
-        .then((res) => {
-          console.log(res);
-          setData(res.data.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
-
     return (
         <>
-            <Layouts title="| landingPage">
-            {/* <Navbar/> */}
+            {/* <Layouts login={login} title="| landingPage"> */}
+            <Navbar login={login} />
             <div className={styles.container}>
                 <div className={styles.menu}>
                     <h1>
@@ -55,7 +39,8 @@ const landingPage = () => {
                 <div className={styles.bg}>
                     <div className={styles.mainimg}>
                         <Link href="detailvideo">
-                            <Image src="/image/egg.png" alt="" layout="fill" objectFit="cover" />
+                            <img src="/image/egg.png" alt="" layout="fill" objectFit="cover" />
+                            {/* <Image src={data.vidio} alt="" layout="fill" objectFit="cover" /> */}
                         </Link>
                     </div>
                 <div className={styles.white}></div>
@@ -67,10 +52,10 @@ const landingPage = () => {
                 <h1>Popular For You !</h1>
                 <div className={styles.popular}>
                     <div className={styles.popularing}>
-                        <Image src="/image/burger1.png" alt="" width={400} height={380} />
+                        <img src="/image/burger1.png" alt="" width={400} height={380} />
                     </div>
                     <div className={styles.popularing}>
-                        <Image src="/image/burger2.png" alt="" width={400} height={380} />
+                        <img src="/image/burger2.png" alt="" width={400} height={380} />
                     </div>
                 </div>
             </div>
@@ -79,7 +64,7 @@ const landingPage = () => {
                 <div className={styles.new}>
                     <h1>New Recipe</h1>
                     <div className={styles.newimg}>
-                        <Image src="/image/burger1.png" alt="" width={450} height={450} />
+                        <img src="/image/burger1.png" alt="" width={450} height={450} />
                     </div>
                 </div>
                 <div className={styles.titlenew}>
@@ -92,19 +77,21 @@ const landingPage = () => {
             </div>
 
             <div className={styles.container4}>
-                <h1>Popular Recipe</h1>
-                <div className={styles.popurecipe}>
-                {data.map((recipe) => (
-                    <Card key={recipe.id_recipe} name={recipe.name} id={recipe.id_recipe} src={recipe.photo} onClick={() => router.push(`/landingPage/${id}`)} />
+                    <h1>Popular Recipe</h1>
+                <div className={styles.gbr}>
+                    {data.data.map((recipe) => (
+                    <div className={styles.popurecipe} key={recipe.id} onClick={() => router.push(`/detailRecipe/${recipe.id}`)}>
+                        <img alt="" src={recipe.photo}  />
+                    </div>
                     ))}
-                    {/* <Card /> */}
                 </div>
             </div>
             <Footer className="footer" />
-        </Layouts>
+        {/* </Layouts> */}
     </>
      
     )
 }
 
-export default landingPage;
+
+export default LandingPage;

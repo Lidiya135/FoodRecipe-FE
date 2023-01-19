@@ -8,13 +8,14 @@ import Link from "next/link"
 // import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/index.js";
 import Layouts from "../components/Layouts"
+import Navbar from "../components/Navbar/index.js";
 
 const Home = () => {
   
     return (
         <>
-            <Layouts title="| Home">
-            {/* <Navbar/> */}
+            {/* <Layouts title="| Home"> */}
+            <Navbar/>
             <div className={styles.container}>
                 <div className={styles.menu}>
                     <h1>
@@ -25,7 +26,7 @@ const Home = () => {
                 <div className={styles.bg}>
                     <div className={styles.mainimg}>
                         <Link href="detailvideo">
-                            <image src="/image/egg.png" alt="" layout="fill" objectFit="cover"/>
+                            <Image src="/image/egg.png" alt="" layout="fill" objectFit="cover"/>
                         </Link>
                     </div>
                 <div className={styles.white}></div>
@@ -68,7 +69,7 @@ const Home = () => {
                 </div>
             </div>
             <Footer className="footer" />
-        </Layouts>
+        {/* </Layouts> */}
     </>
      
     )

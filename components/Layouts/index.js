@@ -1,14 +1,14 @@
-import Navbar from "../Navbar"
+import Navbar1 from "../Navbar/Navbar1"
 import Head from "next/head";
 // import font from "../../public/airbnb-cereal-font"
 
-const Layouts = ({ children, title }) => {
+const Layouts = ({ children, title, login }) => {
   return (
     <>
       <Head>
         <title>Food recipe {title || ""}</title>
       </Head>
-      <Navbar/>
+      <Navbar1 />
       {children}
     </>
   );

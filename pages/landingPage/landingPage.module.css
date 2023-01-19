@@ -110,22 +110,29 @@
   color: #3f3a3a;
 }
 .container4 {
-  display: flex;
-  flex-direction: column;
   margin-top: 40px;
   margin-bottom: 50px;
-  gap: 20px;
+  /* background-color: #efc81a; */
 }
 .container4 h1 {
   margin-left: 100px;
 }
 .popurecipe {
+  margin:20px;
+  /* background-color: aqua; */
+  width: 350px;
+}
+.popurecipe img{
+  width: 350px;
+  height: 350px;
+}
+.gbr{
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-left: 50px;
-  margin-right: 20px;
-  /* background-color: aqua; */
+  justify-content: center;
+  gap: 0px;
+  /* background-color: #3f3a3a; */
+  margin-top: 30px;
 }
 .recipeimg {
   width: 300px;
