@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import styles from "./detailRecipe.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
+import swal from "sweetalert";
 
 export async function getServerSideProps(context) {
     try {
@@ -163,7 +164,7 @@ const DetailRecipe = ({ data, dataUser, id, token }) => {
             <div className={styles.container}>
                 <h1> {data.data[0].title} </h1>
                 {/* <h1>Loream Sandwich</h1> */}
-                <div className={styles.mainimg}>
+                <div onClick={() => router.push(`/editRecipe/${data.data[0].id}`)} className={styles.mainimg}>
                     {/* <Image src="/image/egg.png" width={900} height={500} alt="" /> */}
                     <img src= {data.data[0].photo} width={900} height={500} alt="" />
                 </div>

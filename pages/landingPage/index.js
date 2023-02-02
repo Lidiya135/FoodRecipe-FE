@@ -34,7 +34,9 @@ const LandingPage = ({ data, login }) => {
                     <h1>
                         Discover Recipe <br />& Delicious Food
                     </h1>
-                    <Input className="landing" placeholder="Search Resstourant Food" />
+                    <Link href={`/searchRecipe`}>
+                    <Input  className="landing" placeholder="Search Resstourant Food" />
+                    </Link>
                 </div>
                 <div className={styles.bg}>
                     <div className={styles.mainimg}>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import noImg from "../../public/image/noImg.jpg"
 import { useRouter } from "next/router";
 import axios from 'axios';
 import Footer from "../../components/Footer";
@@ -50,7 +51,7 @@ const Profile = ({token}) => {
           console.log(err);
         });
     }, []);
-// console.log(data.fullname, "nama user")
+  console.log(data, "my data profile")
 
 
     return (
@@ -59,7 +60,7 @@ const Profile = ({token}) => {
                 <div className={styles.profile}>
                     <div className={styles.profil}>
                         {/* <img src="/image/photo.png" alt="image" width={100} height={100} /> */}
-                        <img src={data ? data.photo : "data not found"} alt="image" width={100} height={100} />
+                        <img src={data.photo? data.photo : noImg } alt="image" width={100} height={100} />
                     </div>
                     <h2>{data ? data.fullname : "data not found"}</h2>
                     {/* <h2>Garneta Sharina</h2> */}
@@ -69,7 +70,7 @@ const Profile = ({token}) => {
                 </div>
                 <div className={styles.recipe}>
                   <TabData token={token} />
-                  <myRecipe token={token} />
+                  {/* <myRecipe token={token} /> */}
                 </div>
                 </div>
             </div>

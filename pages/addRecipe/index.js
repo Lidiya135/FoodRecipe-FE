@@ -91,7 +91,7 @@ export const getServerSideProps = async (context) => {
                     <textarea type="text" className={styles.ingre} name="ingredients" id="" cols="105" rows="10" placeholder="Ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
                 </div>
                 <div>
-                    <input type="text" name="vidio" value={vidio} onChange={(e) => setVidio(e.target.value)} className={styles.inputrecipe} />
+                    <input type="text" name="vidio" value={vidio} onChange={(e) => setVidio(e.target.value)} className={styles.inputrecipe} placeholder="Input link vidio"/>
                 </div>
                 <Button type="submit" title="Add Recipe" color="yellow" btn="post" />
                 </form>

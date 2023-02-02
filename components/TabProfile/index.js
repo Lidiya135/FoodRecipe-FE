@@ -63,6 +63,7 @@ console.log(data,"data my recipe")
         console.log(res)
         swal("Success", "Delete recipe success", "success");
         getData()
+        router.push("/profile");
       })
       .catch((err)=>{
         console.log("delete data fail")
@@ -90,7 +91,8 @@ console.log(data,"data my recipe")
     getDataSaved()
     console.log(sav, "data dari saveeeee")
   }, [])
-  
+  console.log(sav, "data dari saveeeee")
+
   const getDataLike =() => {    
     axios
       .get(`http://localhost:3009/like`, {
@@ -110,8 +112,6 @@ console.log(data,"data my recipe")
     getDataLike()
   }, [])
   console.log(lik, "data dari likeee")
-
-
 
   const deleteDataLike = (e, id) => {
     axios.delete(`http://localhost:3009/like/${id}`,  {
@@ -161,7 +161,7 @@ console.log(data,"data my recipe")
               {data ? (
                 data.map((item) => (
                   <div  className="col-4" key={item.id}>
-                    <div onClick={() => router.push(`/detailRecipe/${item.id}`)}>
+                    <div onClick={() => router.push(`/editRecipe/${item.id}`)}>
                     <img src={item.photo}
                       style={{ height: "300px", width:"300px", }}
                       alt="" />
@@ -185,11 +185,12 @@ console.log(data,"data my recipe")
             <div className="row">
             {sav ? (
                 sav.map((item) => (
-              <div className="col-3" key={item.id}>
-                <img src={item.photo} height={300} width={300} alt="" />
+              <div className="col-3" key={item.id} onClick={() =>
+                router.push(`/detailRecipe/${item.recipe_id}`)}>
+                <img src={item.recipe_photo} height={300} width={300} alt="" />
                 <h4
                   style={{marginTop: "-40px", marginLeft: "13px", color: "white",}}>
-                  {item.name}
+                  {item.recipe_name}
                 </h4>
               </div>
                 ))):(<h1>....loading</h1>)}
@@ -198,13 +199,13 @@ console.log(data,"data my recipe")
 
           <Tab eventKey="likedrecipe" title="Liked Recipe">
             <div className="row">
-            {sav ? (
-                sav.map((item) => (
-              <div className="col-3" key={item.id}>
-                <img src="/image/banana.png" height={300} width={300} alt="" />
+            {lik ? (
+                lik.map((item) => (
+              <div className="col-3" key={item.recipe_id}>
+                <img src={item.recipe_photo} height={300} width={300} alt="" />
                 <h4
                   style={{marginTop: "-40px",marginLeft: "13px", color: "white",}}>
-                  Indian Salad
+                  {item.recipe_name}
                 </h4>
               </div>
                ))):(<h1>....loading</h1>)}
