@@ -1,11 +1,7 @@
 import styles from './search.module.css';
 import Footer from "../../components/Footer";
 import Layouts from "../../components/Layouts";
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Pagination } from '../../components/pagination';
-import { ListRecipe } from '../../components/listRecipe';
 
 export async function getServerSideProps(context){
   const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`);

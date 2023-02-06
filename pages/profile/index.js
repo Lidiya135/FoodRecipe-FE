@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import noImg from "../../public/image/noImg.jpg"
-import { useRouter } from "next/router";
 import axios from 'axios';
 import Footer from "../../components/Footer";
 import Layouts from "../../components/Layouts";
 import styles from "./profile.module.css";
 import ModalProfile from "../../components/Modal";
-import myRecipe from "./myRecipe";
 import TabData from "../../components/TabProfile";
 
 export const getServerSideProps = async (context) => {
