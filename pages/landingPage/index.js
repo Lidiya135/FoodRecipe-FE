@@ -10,7 +10,7 @@ import Footer from "../../components/Footer/index.js";
 import Layouts from "../../components/Layouts";
 
 export async function getServerSideProps(context){
-    const res = await fetch(`http://localhost:3009/recipe`);
+    const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`);
     const { token } = context.req.cookies;
     console.log(token, "my tokennnn")
     const data = await res.json();

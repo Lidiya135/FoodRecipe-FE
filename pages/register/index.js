@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/actions/register";
 
 export async function getStaticProps(context) {
-  let url = `http://localhost:3009/users/register`;
+  let url = `https://odd-ruby-sea-lion-toga.cyclic.app/users/register`;
   console.log(url," url after ss");
   return {
     props: {

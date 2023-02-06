@@ -141,6 +141,7 @@ REACT_APP_API_URL = [API_URL]
 | ------------- | ------------- |
 | ![Profile Saved Recipe](https://github.com/Lidiya135/FoodRecipe-FE/blob/main/public/ss/saved_recipe.png "Profile Saved Recipe Page") | ![Profile Liked Recipe](https://github.com/Lidiya135/FoodRecipe-FE/blob/main/public/ss/liked_recipe.png "Profile Liked Recipe Page") |
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
 

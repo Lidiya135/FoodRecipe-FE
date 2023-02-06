@@ -40,7 +40,7 @@ const Profile = ({token}) => {
     }};
     useEffect(() => {
       axios
-        .get("http://localhost:3009/users/data", user)
+        .get("https://odd-ruby-sea-lion-toga.cyclic.app/users/data", user)
         .then((res) => {
           console.log("get data success");
           console.log(res.data);

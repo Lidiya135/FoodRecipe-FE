@@ -31,7 +31,7 @@ function ModalProfile({token}) {
     // console.log(token,"my token in modal pprofil")
     useEffect(() => {
       axios
-        .get("http://localhost:3009/users/data", {
+        .get("https://odd-ruby-sea-lion-toga.cyclic.app/users/data", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {

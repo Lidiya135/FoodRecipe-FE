@@ -8,7 +8,7 @@ import { Pagination } from '../../components/pagination';
 import { ListRecipe } from '../../components/listRecipe';
 
 export async function getServerSideProps(context){
-  const res = await fetch(`http://localhost:3009/recipe`);
+  const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`);
   const data = await res.json();
   console.log("dataaaa", data)
   console.log(data);

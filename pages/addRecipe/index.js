@@ -24,7 +24,7 @@ export const getServerSideProps = async (context) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const result = await fetch(`http://localhost:3009/users/data`, user);
+      const result = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/users/data`, user);
       const dataUser = await result.json();
       console.log(dataUser,"data get usr in add ssr");
 
@@ -71,7 +71,7 @@ export const getServerSideProps = async (context) => {
                 "Content-Type": "multipart/form-data",
               },
             };
-            await axios.post(`http://localhost:3009/recipe`, data, user);
+            await axios.post(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`, data, user);
             swal("Success", "Add Recipes Success", "success");
             router.push("/profile")
           };

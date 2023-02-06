@@ -36,7 +36,7 @@ const TabData = ({ token }) => {
 
   const getData =() => {    
     axios
-      .get(`http://localhost:3009/recipe/user`, {
+      .get(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/user`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -55,7 +55,7 @@ console.log(data,"data my recipe")
   }, [])
 
   const deleteData = (e, id) => {
-    axios.delete(`http://localhost:3009/recipe/${id}`,  {
+    axios.delete(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/${id}`,  {
         headers: { Authorization: `Bearer ${token}` },
       })
     .then((res)=>{
@@ -74,7 +74,7 @@ console.log(data,"data my recipe")
 
   const getDataSaved =() => {    
     axios
-      .get(`http://localhost:3009/save`, {
+      .get(`https://odd-ruby-sea-lion-toga.cyclic.app/save`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -95,7 +95,7 @@ console.log(data,"data my recipe")
 
   const getDataLike =() => {    
     axios
-      .get(`http://localhost:3009/like`, {
+      .get(`https://odd-ruby-sea-lion-toga.cyclic.app/like`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -114,7 +114,7 @@ console.log(data,"data my recipe")
   console.log(lik, "data dari likeee")
 
   const deleteDataLike = (e, id) => {
-    axios.delete(`http://localhost:3009/like/${id}`,  {
+    axios.delete(`https://odd-ruby-sea-lion-toga.cyclic.app/like/${id}`,  {
         headers: { Authorization: `Bearer ${token}` },
       })
     .then((res)=>{
@@ -131,7 +131,7 @@ console.log(data,"data my recipe")
   }
 
   const deleteDataSave = (e, id) => {
-    axios.delete(`http://localhost:3009/save/${id}`,  {
+    axios.delete(`https://odd-ruby-sea-lion-toga.cyclic.app/save/${id}`,  {
         headers: { Authorization: `Bearer ${token}` },
       })
     .then((res)=>{

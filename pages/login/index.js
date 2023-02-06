@@ -27,7 +27,7 @@ const Login = () => {
       withCredentials: true,
     };
     const result = await axios.post(
-      `http://localhost:3009/users/login`,
+      `https://odd-ruby-sea-lion-toga.cyclic.app/users/login`,
       data,
       config
     );

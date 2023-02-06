@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
   try {
     const id = context.params.id;
     console.log(id, "params id vidio");
-    const res = await fetch(`http://localhost:3009/recipe/${id}`);
+    const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/${id}`);
     const data = await res.json();
     console.log(data,"data get recipe in detail");
     console.log(data.data[0].photo, "photooo rsep vidio")

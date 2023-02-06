@@ -10,7 +10,7 @@ const Card = ({ title, src, id, alt, onClick }) => {
   const router = useRouter();
   const deleteRecipe = (id) => {
     axios
-      .delete(`http://localhost:4000/recipe`)
+      .delete(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`)
       .then((result) => {
         Router.replace("/");
       })

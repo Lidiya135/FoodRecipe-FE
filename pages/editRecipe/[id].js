@@ -21,7 +21,7 @@ export const getServerSideProps = async (context) => {
     const id = context.params.id;
     console.log(id, "param update vidio");
 
-    const result = await fetch(`http://localhost:3009/recipe/${id}`,);
+    const result = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/${id}`,);
     const dataRecipe = await result.json();
     console.log(dataRecipe,"data get RECIP in add ssr");
 
@@ -72,7 +72,7 @@ export const getServerSideProps = async (context) => {
         formData.append("photo", photo);
         await 
         axios
-          .put(`http://localhost:3009/recipe/${id}`, formData, user)
+          .put(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/${id}`, formData, user)
           .then((res) => {
           console.log("Update recipe succes");
           console.log(res);

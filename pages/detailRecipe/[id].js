@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
       const id = context.params.id;
       // console.log(id, "params id");
 
-      const res = await fetch(`http://localhost:3009/recipe/${id}`);
+      const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe/${id}`);
       const data = await res.json();
       console.log(data,"data get recipe in detail");
       // console.log(data.data[0].photo, "photooo rsep")
@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
           Authorization: `Bearer ${token}`,
         },
       };
-      const result = await fetch(`http://localhost:3009/users/data`, user);
+      const result = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/users/data`, user);
       const dataUser = await result.json();
       console.log(dataUser,"data get usr in detail");
       // console.log(data.data[0].photo, "photooo rsep")
@@ -63,7 +63,7 @@ const DetailRecipe = ({ data, dataUser, id, token }) => {
     const [dataComment, setDataComment] = useState([]);
     useEffect(() => {
       axios
-        .get(`http://localhost:3009/comment/${recipe_id}`)
+        .get(`https://odd-ruby-sea-lion-toga.cyclic.app/comment/${recipe_id}`)
         .then((res) => {
           console.log("Get comment by recipe success");
           console.log(res.data, );
@@ -83,7 +83,7 @@ const DetailRecipe = ({ data, dataUser, id, token }) => {
       user_recipe_id : user_recipe_id
     };
     axios
-      .post(`http://localhost:3009/like`, form, user)
+      .post(`https://odd-ruby-sea-lion-toga.cyclic.app/like`, form, user)
       .then((res) => {
         console.log("Add like recipe success");
         console.log(res, "ress dari like");
@@ -106,7 +106,7 @@ const DetailRecipe = ({ data, dataUser, id, token }) => {
     };
     axios
     .post(
-      `http://localhost:3009/save`,
+      `https://odd-ruby-sea-lion-toga.cyclic.app/save`,
       form,
       user
     )
@@ -142,7 +142,7 @@ const DetailRecipe = ({ data, dataUser, id, token }) => {
       console.log(form)
         axios
           .post(
-            `http://localhost:3009/comment`,
+            `https://odd-ruby-sea-lion-toga.cyclic.app/comment`,
             form,
             user
           )
