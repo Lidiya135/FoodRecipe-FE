@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Button from "../../components/Button";
 import styles from "../addRecipe/addRecipe.module.css";
 import Footer from "../../components/Footer";

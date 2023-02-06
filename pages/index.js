@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../components/input/index.js";
+import Input from "../components/Input/index.js";
 import Button from "../components/Button/index.js";
 import Card from "../components/Card/index.js"
 import styles from "../pages/landingPage/landingPage.module.css";

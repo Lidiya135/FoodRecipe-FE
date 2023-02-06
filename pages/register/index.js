@@ -1,6 +1,6 @@
 // import React from "react";
 import { useState } from "react";
-import Input from "../../components/input/index.js";
+import Input from "../../components/Input/index.js";
 import styles from "./register.module.css";
 import Image from "next/image";
 import Link from "next/link";

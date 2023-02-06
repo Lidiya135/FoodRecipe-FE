@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
-import Input from "../../components/input/index.js";
+import Input from "../../components/Input/index.js";
 import styles from "./login.module.css";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Input from "../../components/input/index.js";
+// import React, { useState, useEffect } from "react";
+import Input from "../../components/Input/index.js";
 import Button from "../../components/Button/index.js";
 // import Card from "../../components/Card/index.js"
 import styles from "./landingPage.module.css";
@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer/index.js";
-import Layouts from "../../components/Layouts";
+// import Layouts from "../../components/Layouts";
 
 export async function getServerSideProps(context){
     const res = await fetch(`https://odd-ruby-sea-lion-toga.cyclic.app/recipe`);
