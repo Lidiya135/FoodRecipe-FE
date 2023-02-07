@@ -161,6 +161,8 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Mama Recipe Food Backend`](https://github.com/Lidiya135/FoodRecipe-BE)
 
+:rocket: [`Demo Mama Recipe Food`](https://food-recipe-69hmohwjl-lidiya135.vercel.app/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
