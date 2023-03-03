@@ -3,8 +3,7 @@ const initialState = {
         id:"",
         email:"",
         fullname:"",
-        phone:"",
-        token:""
+        phone:""
     },
     isLoading: false
 }
@@ -26,4 +25,4 @@ const userReducer = (state=initialState, action) =>{
     }
 }
 
-export default userReducer
+export default userReducer;

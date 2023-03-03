@@ -11,8 +11,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
   const router = useRouter();
   const postData = async (e) => {
     e.preventDefault();
@@ -28,6 +26,7 @@ const Login = () => {
     };
     const result = await axios.post(
       `https://odd-ruby-sea-lion-toga.cyclic.app/users/login`,
+      // `http://localhost:3009/users/login`,
       data,
       config
     );
@@ -80,7 +79,7 @@ const Login = () => {
                 <input type="checkbox" /> I agree to terms conditions
             </p>
             <button type="submit" onClick={postData} className={styles.btn}>
-              <Link href="/landingPage">Login</Link>
+              Login
             </button>
             <p className={styles.forgot}>
             <Link href="/forgotPass">Forgot Password ?</Link>

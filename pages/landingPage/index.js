@@ -40,7 +40,7 @@ const LandingPage = ({ data, login }) => {
                 </div>
                 <div className={styles.bg}>
                     <div className={styles.mainimg}>
-                        <Link href="detailvideo">
+                    <Link href={`/searchRecipe`}>
                             <img src="/image/egg.png" alt="" layout="fill" objectFit="cover" />
                             {/* <Image src={data.vidio} alt="" layout="fill" objectFit="cover" /> */}
                         </Link>
@@ -54,10 +54,14 @@ const LandingPage = ({ data, login }) => {
                 <h1>Popular For You !</h1>
                 <div className={styles.popular}>
                     <div className={styles.popularing}>
-                        <img src="/image/burger1.png" alt="" width={400} height={380} />
+                        <Link href={`/searchRecipe`}>
+                            <img src="/image/burger1.png" alt="" width={400} height={380} />
+                        </Link>
                     </div>
                     <div className={styles.popularing}>
+                        <Link href={`/searchRecipe`}>
                         <img src="/image/burger2.png" alt="" width={400} height={380} />
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -66,7 +70,9 @@ const LandingPage = ({ data, login }) => {
                 <div className={styles.new}>
                     <h1>New Recipe</h1>
                     <div className={styles.newimg}>
+                    <Link href={`/searchRecipe`}>
                         <img src="/image/burger1.png" alt="" width={450} height={450} />
+                    </Link>
                     </div>
                 </div>
                 <div className={styles.titlenew}>
