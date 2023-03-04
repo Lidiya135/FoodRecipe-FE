@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../../components/Input/index.js";
 import styles from "./register.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
 import swal from "sweetalert";
@@ -15,7 +16,7 @@ export default function Register () {
       fullname: '',
       phone: ''
     })
-    // console.log(inputData);
+    console.log(inputData);
 
     const onChangeHandle = (e) => {
       setInputData({
@@ -28,6 +29,7 @@ export default function Register () {
       e.preventDefault();
       try {
         await axios.post(`https://odd-ruby-sea-lion-toga.cyclic.app/users/register`, inputData);
+        // await axios.post(`http://localhost:3009/users/register`, inputData)
         swal("Success", "Register Success", "success");
         router.push("/login");
       } catch (err) {
@@ -49,7 +51,7 @@ export default function Register () {
             <form onSubmit={postData} action="">
                 <p>
                     Name
-                    <Input type="text" id="name" name="fullname"   onChange={onChangeHandle} className="input" placeholder="Name" />
+                    <Input type="text" id="name" name="fullname" onChange={onChangeHandle} className="input" placeholder="Name" />
                 </p>
                 <p>
                     Email address
@@ -69,8 +71,8 @@ export default function Register () {
                 </button>
             </form>
             <p className={styles.text}>
-              Dont have an account? Login here
-                {/* <Link href="/login" className={styles.a}>Log in here</Link> */}
+              Dont have an account? 
+                <Link href="/login" className={styles.a}>Log in here</Link>
             </p>
           </div>
         </div>
