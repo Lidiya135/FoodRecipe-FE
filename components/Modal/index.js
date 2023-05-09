@@ -74,7 +74,7 @@ function ModalProfile({token}) {
       };
 
       await axios
-        .put(`http://localhost:3009/users/profile`, formData, user)
+        .put(`https://odd-ruby-sea-lion-toga.cyclic.app/users/profile`, formData, user)
         .then((res) => {
           console.log("Update profile succes");
           console.log(res);
