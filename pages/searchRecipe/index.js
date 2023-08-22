@@ -31,7 +31,7 @@ console.log(data, "data list recipe")
               <div className={styles.box} key={rec.id}>
                  <img src={rec.photo} alt='' />
                  <h4>{rec.title}</h4>
-                 <p>{rec.description}</p>
+                 {/* <p>{rec.description}</p> */}
                 <Link href={`/detailRecipe/${rec.id}`}>
                   <button className='btn btn-warning text-white'>Learn More</button>
                 </Link>
